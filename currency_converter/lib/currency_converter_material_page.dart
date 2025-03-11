@@ -10,7 +10,7 @@ class CurrencyConverterMaterialPage extends StatefulWidget {
 
 class _CurrencyConverterMaterialPageState
     extends State<CurrencyConverterMaterialPage> {
-  List<Icon> _CurrencyConversionAvailable = [
+  final List<Icon> _currencyConversionAvailable = [
     Icon(Icons.attach_money),
     Icon(Icons.euro),
     Icon(Icons.currency_rupee),
@@ -45,7 +45,7 @@ class _CurrencyConverterMaterialPageState
       appBar: AppBar(
         backgroundColor: Colors.blueGrey,
         title: Text(
-          'Currency Converter',
+          'currency Converter',
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
@@ -84,17 +84,17 @@ class _CurrencyConverterMaterialPageState
                   hintStyle: TextStyle(color: Colors.black),
                   prefix: DropdownButton(
                     value:
-                        _selectedOption ?? _CurrencyConversionAvailable.first,
+                        _selectedOption ?? _currencyConversionAvailable.first,
                     onChanged: (newValue) {
                       setState(() {
-                        _selectedOption = newValue as Icon?;
+                        _selectedOption = newValue;
                       });
                     },
                     items:
-                        _CurrencyConversionAvailable.map((Currency) {
+                        _currencyConversionAvailable.map((currency) {
                           return DropdownMenuItem(
-                            child: Currency,
-                            value: Currency,
+                            value: currency,
+                            child: currency,
                           );
                         }).toList(),
                   ), //Adding icon in the beginning
